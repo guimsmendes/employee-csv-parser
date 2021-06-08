@@ -1,13 +1,48 @@
 package configuration
 
 import (
-	"database/sql"
 	"employee-csv-parser/utils"
+
+	"github.com/hashicorp/go-memdb"
 )
 
-func DbConnect() *sql.DB {
-	connect := "user=postgres dbname=rain password=123456 host=localhost sslmode=disable"
-	db, err := sql.Open("postgres", connect)
+var db *memdb.MemDB
+
+func DbConnect() {
+	schema := &memdb.DBSchema{
+		Tables: map[string]*memdb.TableSchema{
+			"employee": &memdb.TableSchema{
+				Name: "employee",
+				Indexes: map[string]*memdb.IndexSchema{
+					"id": &memdb.IndexSchema{
+						Name:    "id",
+						Unique:  true,
+						Indexer: &memdb.StringFieldIndex{Field: "Id"},
+					},
+					"name": &memdb.IndexSchema{
+						Name:    "name",
+						Unique:  false,
+						Indexer: &memdb.StringFieldIndex{Field: "FullName"},
+					},
+					"email": &memdb.IndexSchema{
+						Name:    "email",
+						Unique:  true,
+						Indexer: &memdb.StringFieldIndex{Field: "Email"},
+					},
+					"salary": &memdb.IndexSchema{
+						Name:    "salary",
+						Unique:  false,
+						Indexer: &memdb.StringFieldIndex{Field: "Salary"},
+					},
+				},
+			},
+		},
+	}
+	connect, err := memdb.NewMemDB(schema)
 	utils.PrintError(err)
+	db = connect
+}
+
+func GetConnection() *memdb.MemDB {
 	return db
 }

@@ -8,7 +8,7 @@ import (
 	"employee-csv-parser/utils"
 )
 
-func RegisterCsv(table [][]string, fileStatus string) {
+func RegisterCsv(employeeLine []string, fileStatus string) {
 
 	csv, err := os.OpenFile(fileStatus+"Data.csv", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	utils.PrintError(err)
@@ -18,12 +18,9 @@ func RegisterCsv(table [][]string, fileStatus string) {
 		fileStatus == "valid" {
 		csv.WriteString("Id,Full Name,E-mail,Salary\n")
 	}
-	for i := 0; i < len(table); i++ {
-		if strings.Join(table[i], "") == "" {
-			break
-		}
-		csv.WriteString(strings.Join(table[i], ",") + "\n")
-	}
+
+	csv.WriteString(strings.Join(employeeLine, ",") + "\n")
+
 	csv.Close()
 
 }

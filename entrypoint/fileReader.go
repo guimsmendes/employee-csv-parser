@@ -2,6 +2,7 @@ package entrypoint
 
 import (
 	"bufio"
+	"employee-csv-parser/configuration"
 	"employee-csv-parser/usecase"
 	"fmt"
 	"io/fs"
@@ -19,6 +20,7 @@ func ProcessFiles() {
 	files, err := ioutil.ReadDir("csv")
 	utils.PrintError(err)
 	fmt.Println("Files successfully imported.")
+	configuration.DbConnect()
 	for _, f := range files {
 		fmt.Println("Starting " + f.Name() + " file validation...")
 		employeeTable := parseTable(readFile(f))

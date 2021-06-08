@@ -51,7 +51,13 @@ func VerifyTable(employeeTable [][]string) bool {
 
 	persist(validData)
 	fmt.Println("Registering Invalid Data on csv file.")
-	dataprovider.RegisterCsv(invalidData, "invalid")
+	for i, line := range invalidData {
+		if strings.Join(line, "") == "" {
+			break
+		}
+		fmt.Println("Registering Invalid Data for line " + strconv.Itoa(i+1) + " on csv file.")
+		dataprovider.RegisterCsv(line, "invalid")
+	}
 	return true
 }
 
@@ -97,12 +103,15 @@ func writeInvalidLine(line []string, invalidData [][]string) {
 
 func persist(validData [][]string) {
 	for i, line := range validData {
-		employee := repository.EmployeeEntity{line[0], line[1], line[2], line[3]}
-		fmt.Println("Line " + strconv.Itoa(i) + " is being persisted. Employee Id: " + employee.Id)
+		if strings.Join(line, "") == "" {
+			break
+		}
+		employee := repository.Employee{Id: line[0], FullName: line[1], Email: line[2], Salary: line[3]}
+		fmt.Println("Line " + strconv.Itoa(i+1) + " is being persisted. Employee Id: " + employee.Id)
 		if employee.PersistData() {
-			fmt.Println("Line " + strconv.Itoa(i) + " for Employee Id: " + employee.Id + " successfully persisted.")
-			fmt.Println("Registering Valid Data for line " + strconv.Itoa(i) + "on csv file.")
-			dataprovider.RegisterCsv(validData, "valid")
+			fmt.Println("Line " + strconv.Itoa(i+1) + " for Employee Id: " + employee.Id + " successfully persisted.")
+			fmt.Println("Registering Valid Data for line " + strconv.Itoa(i+1) + " on csv file.")
+			dataprovider.RegisterCsv(line, "valid")
 		}
 	}
 }

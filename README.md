@@ -3,7 +3,7 @@
 
 ## Topics
 * [Description](#description)
-* [Architecture Drawing](#architecture-drawing)
+* [Architecture Diagram](#architecture-diagram)
 * [Technologies](#technologies)
 * [How to Run](#how-to-run)
 * [Technical Debts](#technical-debts)
@@ -16,7 +16,7 @@
 
 
 
-## Architecture Drawing
+## Architecture Diagram
 The Architecture chosen for this project was the **Clean Architecture**. Following the image below, this project contains:
 * An **Entrypoint** Layer, responsible for starting the jobs by reading the Input Csv files on the csv/ folder.
 * An **UseCase** Layer, being the Heart of the application, containing the overall business logic.
@@ -24,7 +24,7 @@ The Architecture chosen for this project was the **Clean Architecture**. Followi
 * A **Configuration** Layer, which contains the configuration for the whole project, in this case being responsible for the Database connection.
 <img src = "https://cdn-media-1.freecodecamp.org/images/YIABVRTHRz58ZiT6W-emBkfNIQUHBelp8t6U">
 The project Architecture in details is presented in the image below:
-<img src = "dnaSimiansDiagram.png">
+<img src = "architecture-diagram.png">
  
 
 ## Technologies
@@ -41,7 +41,7 @@ The project Architecture in details is presented in the image below:
 
 ## Developers
 
-[<img src="https://i.ibb.co/swYk9yk/IMG-20200826-164306.jpg" width=115 > <br> <sub> Guilherme Mendes </sub>](https://github.com/guimsmendes) |
+[<img src="https://i.ibb.co/HF09yK2/IMG-20181112-WA0023.jpg" width=115 > <br> <sub> Guilherme Mendes </sub>](https://github.com/guimsmendes) |
 | :---: |  
 
 

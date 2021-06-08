@@ -1,4 +1,4 @@
-<img src = "https://i.ibb.co/hCfWxPp/guimsmendes-dna-simians-dark.png">
+<img src = "https://i.ibb.co/pyc9J02/download.png">
 
 
 ## Topics
@@ -17,6 +17,13 @@
 
 
 ## Architecture Drawing
+The Architecture chosen for this project was the **Clean Architecture**. Following the image below, this project contains:
+* An **Entrypoint** Layer, responsible for starting the jobs by reading the Input Csv files on the csv/ folder.
+* An **UseCase** Layer, being the Heart of the application, containing the overall business logic.
+* A **DataProvider** Layer, responsible for the connection with the Database for persistence and writing the Output files.
+* A **Configuration** Layer, which contains the configuration for the whole project, in this case being responsible for the Database connection.
+<img src = "https://cdn-media-1.freecodecamp.org/images/YIABVRTHRz58ZiT6W-emBkfNIQUHBelp8t6U">
+The project Architecture in details is presented in the image below:
 <img src = "dnaSimiansDiagram.png">
  
 
@@ -27,6 +34,10 @@
 
 
 ## How to Run
+### Install Dependencies
+* Before
+
+## Technical Debts
 
 ## Developers
 

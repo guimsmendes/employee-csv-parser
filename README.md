@@ -70,6 +70,10 @@ The project Architecture in details is presented in the image below:
 
 ## Technical Debts
 
+* This code could be evolved by replacing a few steps in the UseCase layer for a more cohesive code.
+* It could also be evolved by aggregating the additional information on the .csv input files on the valid output files. In this first version, only the minimal required informations are being persisted on the database and registered on the output file.
+* It also could have a database registered in a Cloud Service (AWS, Google Cloud, Azure) for all the employee's information could be registered and maintained.
+
 ## Developers
 
 [<img src="https://i.ibb.co/HF09yK2/IMG-20181112-WA0023.jpg" width=115 > <br> <sub> Guilherme Mendes </sub>](https://github.com/guimsmendes) |

@@ -24,6 +24,7 @@ The Architecture chosen for this project was the **Clean Architecture**. Followi
 * A **DataProvider** Layer, responsible for the connection with the Database for persistence and writing the Output files.
 * A **Configuration** Layer, which contains the configuration for the whole project, in this case being responsible for the Database connection.
 <img src = "https://cdn-media-1.freecodecamp.org/images/YIABVRTHRz58ZiT6W-emBkfNIQUHBelp8t6U">
+In each layer, the project counts with unit tests.
 The project Architecture in details is presented in the image below:
 <img src = "architecture-diagram.png">
  

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/guimsmendes/csv-parser/entrypoint"
+	"employee-csv-parser/entrypoint"
 )
 
 func main() {
